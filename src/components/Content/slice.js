@@ -11,7 +11,6 @@ export const recommendedSongSlice = createSlice({
   initialState,
   reducers: {
     updateLikedSongs: (state, { payload }) => {
-      console.log('payload-->', payload);
       const id = payload.id;
       const list = state.recommendedSongsList.map((al) => ({
         ...al,

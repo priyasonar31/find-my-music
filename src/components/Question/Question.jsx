@@ -51,6 +51,7 @@ export const Question = (props) => {
   };
   
   const handleSubmitAnswers = () => {
+    console.log("here--->");
     submitAnswers(selectedOptions);
     handleCancel();
   };
