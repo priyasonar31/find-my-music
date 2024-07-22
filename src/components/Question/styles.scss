@@ -1,0 +1,109 @@
+.question-card {
+    padding: 2rem 1rem 0;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+
+    &-answer-wrapper {
+        display: flex;
+        gap: 2rem;
+        align-items: baseline;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin: 2rem;
+
+        &-img-wrapper {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            width: 7rem;
+            height: 7rem;
+            border-radius: 1.875rem; 
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0.0625rem 0.0625rem 1.0625rem 0.0625rem rgba(0, 0, 0, 0.25); 
+        }
+
+        &-img-wrapper:hover {
+            transition: .2s;
+            transform: scale(1.1);
+        }
+    }
+}
+
+.answer {
+    &-img {
+        height: 4rem;
+        width: 4rem;
+        object-fit: cover;
+
+        &-text {
+            font-weight: 700;
+        }
+    }
+}
+
+.card {
+    width: 6.875rem; 
+    height: 6.875rem; 
+    border-radius: 2.5rem; 
+    box-shadow: 0.1875rem 0.1875rem 1.875rem 0.4375rem rgba(0, 0, 0, 0.25); 
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 5%;
+    position: relative;
+
+    &-image {
+        width: inherit;
+        height: inherit;
+        border-radius: 2.5rem; 
+
+        img {
+            width: inherit;
+            height: inherit;
+            border-radius: 2.5rem; 
+            object-fit: cover;
+        }
+    }
+
+    &-image:hover {
+        transition: .2s;
+        transform: scale(1.1);
+    }
+
+    &-title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 1rem;
+    }
+}
+
+.ant-carousel .slick-next::after,
+.ant-carousel .slick-prev::after {
+    color: black;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-weight: 700;
+}
+
+.ant-modal {
+    .ant-modal-content {
+        width: 40rem;
+    }
+
+    .ant-modal-body {
+        height: 28rem;
+    }
+}
+
+:where(.css-dev-only-do-not-override-p8b6i).ant-carousel .slick-dots li {
+    background: rgb(100, 98, 98);
+}
+
+:where(.css-dev-only-do-not-override-p8b6i).ant-carousel .slick-dots li.slick-active button {
+    background: black;
+}

@@ -1,0 +1,69 @@
+.content {
+    padding: 0 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-loader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &-recommendation-wrapper {
+        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        margin-top: 4rem;
+        margin-bottom: 3rem;
+        align-items: center;
+    }
+
+    &-start-btn {
+        background: #7034ec;
+        color: white;
+        font-weight: 600;
+        width: 35%;
+        font-size: 1rem;
+        height: 3rem;
+    }
+
+    &-question-card {
+        color: black;
+        text-align: center;
+        background: #364d79;
+        padding: 1rem;
+
+        .ant-carousel .slick-dots li.slick-active button {
+            background: black;
+        }
+
+        &-select-wrapper {
+            margin: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            &-answer {
+                padding: 1rem;
+                border: 1px solid;
+                border-radius: 18px;
+                transition: all .4s ease 0s;
+
+                ::hover {
+                    transition: all .4s ease 0s
+                }
+            }
+
+            &-answer:hover {
+                transform: scale(1.05);
+                border: 2.2px solid rgba(197, 115, 230, 0.883);
+            }
+
+            .ant-carousel .slick-dots li.slick-active button {
+                background: black;
+            }
+        }
+
+    }
+}

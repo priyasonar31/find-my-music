@@ -1,0 +1,86 @@
+.playlist-view {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-left: 2%;
+    &-loader {
+        align-self: center;
+        margin-top: 40%;
+    }
+    &-cover {
+        border-radius: 12px;
+        height: 15%;
+        padding: 1rem;
+        &-options {
+            display: flex;
+            justify-content: space-between;
+            &-actions {
+                display: flex;
+                gap: 1rem;
+            }
+            &-chevron:hover {
+                cursor: pointer;
+                color: white;
+                transform: scale(1.15);
+                transition: all .4s ease 0s;
+            }
+        }
+        &-content {
+            padding-top: 0.8rem;
+            &-text {
+                font-size: 1.125rem;
+                font-weight: 800;
+                display: flex;
+                gap: 0.7rem;
+                padding-bottom: 0.5px;
+            }
+            &-subtext {
+                font-size: 0.625rem;
+                font-weight: 700;
+            }
+        }
+        &-img {
+            width: 19rem;
+            object-fit: cover;
+        }
+    }
+
+    &-songs {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        &-wrapper {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 1rem;
+            &-content {
+                display: flex;
+                align-items: center;
+                &-img {
+                    height: 5.3125rem;
+                }
+                &-details {
+                    font-size: 0.75rem;
+                }
+  
+                &-name {
+                    font-weight: 800;
+                }
+                &-artist {
+                    color: #ACB8C2;
+                }
+                &-dots {
+                    display: flex;
+                    align-items: center;
+                    color: #656F77;
+                }
+            }
+        }
+
+        &-wrapper:hover {
+                cursor: pointer;
+                font-weight: 700;
+                transform: scale(1.05);
+                transition: all .4s ease 0s;
+        }
+    }
+}

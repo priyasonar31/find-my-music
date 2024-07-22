@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap");
+
+.topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 5%;
+    padding-top: 1rem;
+    padding-left: 5%;
+
+    &-image-logo-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        align-items: center;
+        padding-bottom: 1.125rem;
+
+        &-image {
+            width: 2rem;
+        }
+
+        &-name {
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal;
+            font-family: "MuseoModerno", sans-serif;
+            align-self: center;
+            font-size: 28px;
+            color: #143F6B;
+
+        }
+    }
+
+    &-details-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+        color: #143F6B;
+
+        &-avatar {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+
+            &-name {
+
+                h4,
+                h6 {
+                    font-family: "MuseoModerno", sans-serif;
+                    color: #143F6B;
+                }
+
+            }
+        }
+    }
+}
