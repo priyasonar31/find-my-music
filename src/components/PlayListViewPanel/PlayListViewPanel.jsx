@@ -22,7 +22,7 @@ import { LuDownload } from "react-icons/lu";
 import "./styles.scss";
 
 const getImageIcon = () => {
-  const imgList =  [artist1, artist2, artist3, artist4];
+  const imgList = [artist1, artist2, artist3, artist4];
   const index = Math.floor(Math.random() * 3) + 0;
   return imgList[index];
 };
@@ -49,7 +49,7 @@ const renderPlayListView = (list) =>
           </div>
         </div>
         <div className="playlist-view-songs-wrapper-content-dots">
-          <IoPlayCircleOutline size={38}/>
+          <IoPlayCircleOutline size={38} />
         </div>
       </div>
     </div>
@@ -78,9 +78,16 @@ export const PlayListViewPanel = () => {
 
   return (
     <div className="playlist-view">
-      <div className="playlist-view-cover" style={{ background: isPartyView ? "#A6B9FF" : "#BBA5FF"}}>
+      <div
+        className="playlist-view-cover"
+        style={{ background: isPartyView ? "#A6B9FF" : "#BBA5FF" }}
+      >
         <div className="playlist-view-cover-options">
-          <FaChevronLeft className="playlist-view-cover-options-chevron" size={22} onClick={handleChevronClick} />
+          <FaChevronLeft
+            className="playlist-view-cover-options-chevron"
+            size={22}
+            onClick={handleChevronClick}
+          />
           <div className="playlist-view-cover-options-actions">
             <GoHeartFill size={22} />
             <LuDownload size={22} />
@@ -88,7 +95,19 @@ export const PlayListViewPanel = () => {
         </div>
         <div className="playlist-view-cover-content">
           <div className="playlist-view-cover-content-text">
-            {isPartyView ? <><div><LuPartyPopper size={24}/>Party Songs</div></> : <><FaMusic size={24}/><div>Songs to sing out loud</div></>}
+            {isPartyView ? (
+              <>
+                <div>
+                  <LuPartyPopper size={24} />
+                  Party Songs
+                </div>
+              </>
+            ) : (
+              <>
+                <FaMusic size={24} />
+                <div>Songs to sing out loud</div>
+              </>
+            )}
           </div>
           <div className="playlist-view-cover-content-subtext">
             {isPartyView
@@ -102,10 +121,13 @@ export const PlayListViewPanel = () => {
           <img style={{ width: "6rem" }} src={loaderSvg} alt="loader" />
         </div>
       )}
-      {
+      {loader === asycStatus.SUCCESS &&
         renderPlayListView(
           isPartyView ? topPartySongsList : topShowerSongsList
         )}
+      {loader === asycStatus.FAILURE && (
+        <div style={{ marginTop: "20%", textAlign: 'center' }}>Sorry... Server is down</div>
+      )}
     </div>
   );
 };

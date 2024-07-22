@@ -81,7 +81,11 @@ const ArtistsPanel = (props) => {
       <div className="artist-container-header">{headerTitle}</div>
       <div className="artist-container-wrapper">
         {loader === asycStatus.PENDING && (
-          <img src={loaderSvg} style={{ width: "6rem", marginTop: '30%' }} alt="" />
+          <img
+            src={loaderSvg}
+            style={{ width: "6rem", marginTop: "30%" }}
+            alt=""
+          />
         )}
         {loader === asycStatus.SUCCESS &&
           artistDetails?.map((cd, index) => (
@@ -127,6 +131,9 @@ const ArtistsPanel = (props) => {
               )}
             </div>
           ))}
+        {loader === asycStatus.FAILURE && (
+          <div style={{ marginTop: "20%" }}>Sorry... Server is down</div>
+        )}
       </div>
     </div>
   );

@@ -1,10 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useRef, useEffect  } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Question } from "../Question/Question";
 import { RecommendedSongs } from "../RecommendedSongs/RecommendedSongs";
 import { fetchRecommendedSongs } from "./thunk";
-import { selectRecommendedSongsList, selectRecommendedSongLoader } from "./selector";
+import {
+  selectRecommendedSongsList,
+  selectRecommendedSongLoader,
+} from "./selector";
 import { updateLikedSongs } from "./slice";
 import loaderSvg from "../../assets/loader.svg";
 import Banner from "../../assets/cover.svg";
@@ -14,13 +17,13 @@ import { Button } from "antd";
 import "./styles.scss";
 
 function Content() {
-  const dispatch =  useDispatch();
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const songsList = useSelector(selectRecommendedSongsList);
   const loader = useSelector(selectRecommendedSongLoader);
   const songsEndRef = useRef(null);
-  useEffect(()=>{
-    if(loader === asycStatus.PENDING) {
+  useEffect(() => {
+    if (loader === asycStatus.PENDING) {
       scrollToBottom();
     }
   }, [loader]);
@@ -28,7 +31,7 @@ function Content() {
     setIsModalOpen(true);
   };
   const scrollToBottom = () => {
-    songsEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    songsEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
   const renderRecommendationWrapper = () => (
     <div className="content-recommendation-wrapper">
@@ -46,22 +49,39 @@ function Content() {
   );
 
   const onClickAddFavorite = (id) => {
-    dispatch(updateLikedSongs({id}));
+    dispatch(updateLikedSongs({ id }));
   };
 
   const submitAnswers = (payload) => {
-    dispatch(fetchRecommendedSongs(payload))
+    dispatch(fetchRecommendedSongs(payload));
   };
 
   return (
     <div className="content">
       <div className="content-banner-wrapper">
-        <img src={Banner} alt="banner" style={{width: '35rem'}} />
+        <img src={Banner} alt="banner" style={{ width: "35rem" }} />
       </div>
       {renderRecommendationWrapper()}
-      <Question isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} submitAnswers={submitAnswers} />
-      {loader === asycStatus.PENDING && <div className="content-loader" ref={songsEndRef}><img style={{width: '6rem'}}src={loaderSvg} alt="loader"/> <div>Loading Recommendations...</div></div>}
-     {loader === asycStatus.SUCCESS && <RecommendedSongs list={songsList} onClickAddFavorite={onClickAddFavorite} /> }
+      <Question
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        submitAnswers={submitAnswers}
+      />
+      {loader === asycStatus.PENDING && (
+        <div className="content-loader" ref={songsEndRef}>
+          <img style={{ width: "6rem" }} src={loaderSvg} alt="loader" />{" "}
+          <div>Loading Recommendations...</div>
+        </div>
+      )}
+      {loader === asycStatus.SUCCESS && (
+        <RecommendedSongs
+          list={songsList}
+          onClickAddFavorite={onClickAddFavorite}
+        />
+      )}
+      {loader === asycStatus.FAILURE && (
+        <div style={{ marginTop: "20%" }}>Sorry... Server is down</div>
+      )}
     </div>
   );
 }

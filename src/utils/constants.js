@@ -1,7 +1,3 @@
-// import artist1 from "./assets/fav/1.svg";
-// import artist2 from "./assets/fav/2.svg";
-// import artist3 from "./assets/fav/3.svg";
-import recentlyPlayed1 from '../assets/recently-played/1.svg';
 import recentlyPlayed2 from '../assets/recently-played/2.svg';
 import recentlyPlayed3 from '../assets/recently-played/3.svg';
 import recentlyPlayed4 from '../assets/recently-played/4.svg';
@@ -155,51 +151,6 @@ export const rightPanelDetails = {
             }
         ]
     },
-    2: {
-        headerTitle: "Recently Played",
-        containerDetails: [
-            {
-                imageLink: recentlyPlayed1,
-                alt: 'artist1',
-                name: 'As It Was',
-                address: 'Harry Styles',
-                isButton: false,
-                isSelected: true,
-            },
-            {
-                imageLink: recentlyPlayed2,
-                alt: 'artist1',
-                name: 'As It Was',
-                address: 'Harry Styles',
-                isButton: false,
-                isSelected: false,
-            },
-            {
-                imageLink: recentlyPlayed3,
-                alt: 'artist1',
-                name: 'As It Was',
-                address: 'Harry Styles',
-                isButton: false,
-                isSelected: true,
-            },
-            {
-                imageLink: recentlyPlayed4,
-                alt: 'artist1',
-                name: 'As It Was',
-                address: 'Harry Styles',
-                isButton: false,
-                isSelected: false,
-            },
-            {
-                imageLink: recentlyPlayed1,
-                alt: 'artist1',
-                name: 'As It Was',
-                address: 'Harry Styles',
-                isButton: false,
-                isSelected: false,
-            },
-        ]
-    }
 }
 
 export const asycStatus = {
@@ -208,3 +159,5 @@ export const asycStatus = {
     FAILURE: 'failure',
     INITIAL: 'initial'
 }
+
+export const API_BASE_URL = 'https://songs-services.netlify.app/.netlify/functions/api/';
