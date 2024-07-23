@@ -89,15 +89,14 @@ const ArtistsPanel = (props) => {
         )}
         {loader === asycStatus.SUCCESS &&
           artistDetails?.map((cd, index) => (
-            <div
-              className="artist-container-details"
-              key={index}
-              onClick={handleOnClickName.bind(
-                this,
-                isSongsPanel ? cd.url : cd.name
-              )}
-            >
-              <div className="artist-container-details-avatar-wrapper">
+            <div className="artist-container-details" key={index}>
+              <div
+                className="artist-container-details-avatar-wrapper"
+                onClick={handleOnClickName.bind(
+                  this,
+                  isSongsPanel ? cd.url : cd.name
+                )}
+              >
                 <div className="artist-container-details-avatar-wrapper-img">
                   <img src={cd.imageLink} alt={cd.alt} />
                 </div>

@@ -1,8 +1,9 @@
 .content {
-    padding: 0 1rem 1rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 3rem;
 
     &-loader {
         display: flex;
@@ -14,8 +15,8 @@
         gap: 2rem;
         display: flex;
         flex-direction: column;
-        margin-top: 4rem;
-        margin-bottom: 3rem;
+        // margin-top: 4rem;
+        // margin-bottom: 3rem;
         align-items: center;
     }
 

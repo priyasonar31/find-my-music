@@ -10,14 +10,15 @@ import {
 function App() {
   return (
     <div className="App">
-      <TopBar/>
-      <div className="App-contents">
-        {/* <SideBar /> */}
-        <PlayListViewPanel />
-        <Content />
-        <div className="App-contents-left-panel">
-          <FavoriteArtistsPanel />
-          <RecentlyPlayedPanel />
+      <div>
+        <TopBar />
+        <div className="App-contents">
+          <PlayListViewPanel />
+          <Content />
+          <div className="App-contents-left-panel">
+            <FavoriteArtistsPanel />
+            <RecentlyPlayedPanel />
+          </div>
         </div>
       </div>
     </div>

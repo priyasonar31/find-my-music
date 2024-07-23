@@ -1,26 +1,33 @@
 .App {
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   &-contents {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    padding: 1rem;
+    gap: 1rem;
+
     &-left-panel {
-      width: 27%;
-      padding: 0 1rem 1rem;
-      margin-right: 2%;
+      // width: 27%;
+      // padding: 0 1rem 1rem;
+      // margin-right: 2%;
+      display: flex;
+      padding-top: 1rem;
+      flex-direction: column;
+      gap: 2rem;
     }
   }
 }
 
 .header {
   font-weight: 800;
-    font-size: 1.375rem;
-    color: #5179A3;
+  font-size: 1.375rem;
+  color: #5179A3;
 }
 
-.ant-carousel .slick-dots li.slick-active { 
+.ant-carousel .slick-dots li.slick-active {
   background-color: pink;
 }
-
-
