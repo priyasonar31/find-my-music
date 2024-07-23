@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Button, Carousel, Modal } from "antd";
 import { FaCheckCircle } from "react-icons/fa";
-import { formFieldsConfig } from "../../utils/constants";
+import { formFieldsConfig, formMoodConfig } from "../../utils/constants";
 import "./styles.scss";
 
 export const Question = (props) => {
@@ -49,12 +49,20 @@ export const Question = (props) => {
       [index]: selected,
     });
   };
-  
+
   const handleSubmitAnswers = () => {
-    console.log("here--->");
     submitAnswers(selectedOptions);
     handleCancel();
   };
+
+  const renderSubmitButton = () =>
+    showSubmitButton && (
+      <div>
+        <Button type="primary" size={"large"} onClick={handleSubmitAnswers}>
+          Find My Music
+        </Button>
+      </div>
+    );
 
   return (
     <Modal
@@ -69,112 +77,24 @@ export const Question = (props) => {
         <div className="question-card">
           <h3>How are you feeling right now?</h3>
           <div className="question-card-answer-wrapper">
-            <div
-              className="question-card-answer-wrapper-img-wrapper"
-              style={{
-                background: "#DFEBFF",
-                //   border: "4px solid rgb(168, 181, 255)",
-              }}
-              onClick={handleOnClickEmotionOptions.bind(this, {
-                index: 1,
-                selected: "Happy",
-              })}
-            >
-              <img
-                className="answer-img"
-                src="./emotion/happy.svg"
-                alt="Happy"
-              />
-              <span className="answer-img-text">Happy</span>
-              {selectedOptions[1] === "Happy" && renderCheckMark()}
-            </div>
-            <div
-              className="question-card-answer-wrapper-img-wrapper"
-              style={{
-                background: "#FFA7BC",
-              }}
-              onClick={handleOnClickEmotionOptions.bind(this, {
-                index: 1,
-                selected: "Spectacular",
-              })}
-            >
-              <img
-                className="answer-img"
-                src="./emotion/spectacular.svg"
-                alt="Spectacular"
-              />
-              <span className="answer-img-text">Spectacular</span>
-              {selectedOptions[1] === "Spectacular" && renderCheckMark()}
-            </div>
-            <div
-              className="question-card-answer-wrapper-img-wrapper"
-              style={{
-                background: "#FDDD6F",
-              }}
-              onClick={handleOnClickEmotionOptions.bind(this, {
-                index: 1,
-                selected: "Good",
-              })}
-            >
-              <img className="answer-img" src="./emotion/good.svg" alt="Good" />
-              <span className="answer-img-text">Good</span>
-              {selectedOptions[1] === "Good" && renderCheckMark()}
-            </div>
-            <div
-              className="question-card-answer-wrapper-img-wrapper"
-              style={{
-                background: "#A1E7EB",
-              }}
-              onClick={handleOnClickEmotionOptions.bind(this, {
-                index: 1,
-                selected: "Sad",
-              })}
-            >
-              <img className="answer-img" src="./emotion/sad.svg" alt="Sad" />
-              <span className="answer-img-text">Sad</span>
-              {selectedOptions[1] === "Sad" && renderCheckMark()}
-            </div>
-            <div
-              className="question-card-answer-wrapper-img-wrapper"
-              style={{
-                background: "#8CA4EE",
-              }}
-              onClick={handleOnClickEmotionOptions.bind(this, {
-                index: 1,
-                selected: "Upset",
-              })}
-            >
-              <img
-                className="answer-img"
-                src="./emotion/upset.svg"
-                alt="Upset"
-              />
-              <span className="answer-img-text">Upset</span>
-              {selectedOptions[1] === "Upset" && renderCheckMark()}
-            </div>
-            <div
-              className="question-card-answer-wrapper-img-wrapper"
-              style={{
-                background: "#FF843E",
-              }}
-              onClick={handleOnClickEmotionOptions.bind(this, {
-                index: 1,
-                selected: "Angry",
-              })}
-            >
-              <img
-                className="answer-img"
-                src="./emotion/angry.svg"
-                alt="Angry"
-              />
-              <span className="answer-img-text">Angry</span>
-              {selectedOptions[1] === "Angry" && renderCheckMark()}
-            </div>
-            {showSubmitButton && (
-              <Button type="primary" size={"large"}>
-                Submit
-              </Button>
-            )}
+            {formMoodConfig.map(({background, title, imageLink, bindData}) => (
+              <div
+                className="question-card-answer-wrapper-img-wrapper"
+                style={{
+                  background,
+                }}
+                onClick={handleOnClickEmotionOptions.bind(this, bindData)}
+              >
+                <img
+                  className="answer-img"
+                  src={imageLink}
+                  alt={title}
+                />
+                <span className="answer-img-text">{title}</span>
+                {selectedOptions[1] === title && renderCheckMark()}
+              </div>
+            ))}
+            {renderSubmitButton()}
           </div>
         </div>
         {formFieldsConfig.map((question, index) => (
@@ -201,13 +121,7 @@ export const Question = (props) => {
                 </div>
               ))}
             </div>
-            {showSubmitButton && (
-              <div>
-                <Button type="primary" size={"large"} onClick={handleSubmitAnswers}>
-                  Find My Music
-                </Button>
-              </div>
-            )}
+            {renderSubmitButton()}
           </div>
         ))}
       </Carousel>

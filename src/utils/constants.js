@@ -2,6 +2,63 @@ import recentlyPlayed2 from '../assets/recently-played/2.svg';
 import recentlyPlayed3 from '../assets/recently-played/3.svg';
 import recentlyPlayed4 from '../assets/recently-played/4.svg';
 
+export const formMoodConfig = [
+    {
+        background: "#DFEBFF",
+        bindData: {
+            index: 1,
+            selected: "Happy",
+        },
+        imageLink: "./emotion/happy.svg",
+        title: "Happy",
+    },
+    {
+        background: "#FFA7BC",
+        bindData: {
+            index: 1,
+            selected: "Spectacular",
+        },
+        imageLink: "./emotion/spectacular.svg",
+        title: "Spectacular",
+    },
+    {
+        background: "#FDDD6F",
+        bindData: {
+            index: 1,
+            selected: "Good",
+        },
+        imageLink: "./emotion/good.svg",
+        title: "Good",
+    },
+    {
+        background: "#A1E7EB",
+        bindData: {
+            index: 1,
+            selected: "Sad",
+        },
+        imageLink: "./emotion/sad.svg",
+        title: "Sad",
+    },
+    {
+        background: "#8CA4EE",
+        bindData: {
+            index: 1,
+            selected: "Upset",
+        },
+        imageLink: "./emotion/upset.svg",
+        title: "Upset",
+    },
+    {
+        background: "#FF843E",
+        bindData: {
+            index: 1,
+            selected: "Angry",
+        },
+        imageLink: "./emotion/angry.svg",
+        title: "Angry",
+    }
+];
+
 export const formFieldsConfig = [
     {
         field: "What type of music are you in the mood for?",
